@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import sqlite3 as sq
+import pandas as pd
+import yahoo_fin.stock_info as si
+
+con = sq.connect("/home/rodrigo/Documentos/eFinanc.db")
+#ya esttoy conectado a la base de datos
+cursor = con.cursor()
+
+
+#creo la tabla de resultados
+j = pd.DataFrame(si.get_income_statement("aapl"))
+sql = "create table if not exists income (ticker TEXT , fecha INTEGER, tipo TEXT "
+
+for i,k in j.iterrows():
+    print ( i)
+    #lista.append(i)
+    sql = sql + ", " + i +" NUMERIC"
+    
+sql = sql + ")"
+print((sql))
+cursor.execute(sql)
+con.commit
+
+#creo la tabla de los balances
+j = pd.DataFrame(si.get_balance_sheet("aapl"))
+sql = "create table if not exists balance (ticker TEXT , fecha INTEGER , tipo TEXT "
+
+for i,k in j.iterrows():
+    print ( i)
+    #lista.append(i)
+    sql = sql + ", " + i +" NUMERIC"
+    
+sql = sql + ")"
+print((sql))
+cursor.execute(sql)
+con.commit
+
+
+#Creo la tabla de CashFlow
+j = pd.DataFrame(si.get_cash_flow("aapl"))
+sql = "create table if not exists fFondos (ticker TEXT , fecha INTEGER , tipo TEXT "
+
+for i,k in j.iterrows():
+    print ( i)
+    #lista.append(i)
+    sql = sql + ", " + i +" NUMERIC"
+    
+sql = sql + ")"
+print((sql))
+cursor.execute(sql)
+con.commit
+
+
+
+
+
+#Creo la tabla de informacion
+n = pd.DataFrame(si.get_company_info("aapl"))
+sql = "create table if not exists info (ticker TEXT , fecha INTEGER , tipo TEXT "
+for i,k in n.iterrows():
+    print(i , k.Value)
+    sql = sql + ", " + i +" NUMERIC"
+
+sql = sql + ")"
+print((sql))
+cursor.execute(sql)
+con.commit
+
+
+con.close()
