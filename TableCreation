@@ -6,7 +6,7 @@ import pandas as pd
 import yahoo_fin.stock_info as si
 
 con = sq.connect("/home/rodrigo/Documentos/eFinanc.db")
-#ya esttoy conectado a la base de datos
+#ya estoy conectado a la base de datos
 cursor = con.cursor()
 
 
@@ -22,7 +22,7 @@ for i,k in j.iterrows():
 sql = sql + ")"
 print((sql))
 cursor.execute(sql)
-con.commit
+con.commit()
 
 #creo la tabla de los balances
 j = pd.DataFrame(si.get_balance_sheet("aapl"))
@@ -36,7 +36,7 @@ for i,k in j.iterrows():
 sql = sql + ")"
 print((sql))
 cursor.execute(sql)
-con.commit
+con.commit()
 
 
 #Creo la tabla de CashFlow
@@ -51,7 +51,7 @@ for i,k in j.iterrows():
 sql = sql + ")"
 print((sql))
 cursor.execute(sql)
-con.commit
+con.commit()
 
 
 
@@ -67,7 +67,7 @@ for i,k in n.iterrows():
 sql = sql + ")"
 print((sql))
 cursor.execute(sql)
-con.commit
+con.commit()
 
 
 con.close()
