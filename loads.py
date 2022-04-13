@@ -8,7 +8,7 @@ class stock:
         self.ticker = ticker
 
 
-    def incomeAnual(self, tipo: str= "anual"):
+    def income(self, tipo: str= "anual"):
         #Obtengo último estado cargado
         con = sq.connect("/home/rodrigo/Documentos/eFinanc.db")
         cursor = con.cursor()
