@@ -127,7 +127,7 @@ class stock:
                         con = sq.connect("/home/rodrigo/Documentos/eFinanc.db")
                         #print(i)
                         cursor = con.cursor()
-                        sql = "insert into income " + sql1 + " values " + sql2 +";"
+                        sql = "insert into fFondos " + sql1 + " values " + sql2 +";"
                         #print(sql)
                         cursor.execute(sql)
                         con.commit()
