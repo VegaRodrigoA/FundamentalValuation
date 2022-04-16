@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../Python"
+		},
+		{
+			"name": "FundamentalValuation",
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"[Solarized Light]": {}
+		},
+		"workbench.preferredDarkColorTheme": "Default High Contrast Light",
+		"workbench.colorTheme": "Default Light+",
+		"workbench.preferredHighContrastColorTheme": "Default Light+"
+	}
+}
